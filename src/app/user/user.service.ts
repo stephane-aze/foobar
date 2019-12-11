@@ -12,7 +12,7 @@ import { User } from './User';
 })
 export class UserService {
   private authenticatedUser!: User;
-  uri = 'http://localhost:3000';
+  uri = 'https://projet-annuel-node.herokuapp.com';
   public constructor(private readonly auth: AuthService, private readonly resource: UserResourceService,private readonly httpClient: HttpClient) {}
 
   public get currentUser() {
