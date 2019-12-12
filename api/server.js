@@ -1,19 +1,16 @@
-import { resolve } from 'path';
-import jsonServer from 'json-server';
+//Install express server
+const express = require('express');
+const path = require('path');
 
-import authService from './auth-service';
+const app = express();
 
-const server = jsonServer.create();
-const router = jsonServer.router(resolve(__dirname, 'db.json'));
-const middlewares = jsonServer.defaults();
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/test-projet-ng'));
 
-server.use(middlewares);
+app.get('/*', function(req,res) {
 
-server.use(jsonServer.bodyParser);
-server.post('/auth', authService);
-
-server.use(router);
-
-server.listen(3000, () => {
-  console.log('JSON Server is running');
+res.sendFile(path.join(__dirname+'/dist/test-projet-ng/index.html'));
 });
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
