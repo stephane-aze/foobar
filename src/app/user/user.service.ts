@@ -23,7 +23,6 @@ export class UserService {
 
     return this.httpClient.post(`${this.uri}/api/auth/users`, body).pipe(
       tap(user => {
-        console.log(user);
         //this.authenticatedUser = user;
       }));
   }
@@ -31,7 +30,6 @@ export class UserService {
     console.log(userCreate);
     return this.httpClient.post(`${this.uri}/api/users`, userCreate)
       .subscribe(user => {
-        console.log(user);
 
       });
   }
