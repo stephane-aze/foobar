@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit,FbappPage {
     this.router.navigateByUrl('/');
   }
   public onSubmit(formDir: NgForm): void {
+    console.log('ok');
 
     const { email, password } = formDir.value;
     /*this.authService.authenticate(email, password).subscribe(user=>{
@@ -51,6 +52,7 @@ export class LoginComponent implements OnInit,FbappPage {
         localStorage.setItem("user",JSON.stringify(user));
         //localStorage.removeItem("user")
         //localStorage.getItem("user")
+        console.log(user);
         this.goToHome();
         return null;
       }),

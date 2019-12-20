@@ -46,7 +46,7 @@
                         formControlName="password" required >
 
                     <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
-                      <div *ngIf="FormRegister.controls[password].errors?.required">
+                      <div *ngIf="FormRegister.controls[password].errors.required">
                         Password n'est pas valable
                       </div>
                     </div>

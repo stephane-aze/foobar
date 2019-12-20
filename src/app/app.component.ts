@@ -13,22 +13,7 @@ import { FbappPage } from './shared/FbappPage';
 
   </div>
 
-` ,
-  styles: [
-    `
-      .app-container {
-        max-width: 900px;
-        margin: auto;
-      }
-      .container.page{
-        height: 85vh;
-      }
-      fbapp-footer{
-          bottom: 0;
-          color: #313131;
-      }
-    `,
-]
+`
 })
 export class AppComponent {
   public activatedPageName = 'fbappapp';

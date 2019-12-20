@@ -12,7 +12,7 @@ import { User } from './User';
 })
 export class UserService {
   private authenticatedUser!: User;
-  uri = 'https://projet-annuel-node.herokuapp.com';
+  uri = 'http://localhost:3000';
   public constructor(private readonly auth: AuthService, private readonly resource: UserResourceService,private readonly httpClient: HttpClient) {}
 
   public get currentUser() {
@@ -23,6 +23,7 @@ export class UserService {
 
     return this.httpClient.post(`${this.uri}/api/auth/users`, body).pipe(
       tap(user => {
+        console.log(user);
         //this.authenticatedUser = user;
       }));
   }
@@ -30,6 +31,7 @@ export class UserService {
     console.log(userCreate);
     return this.httpClient.post(`${this.uri}/api/users`, userCreate)
       .subscribe(user => {
+        console.log(user);
 
       });
   }
