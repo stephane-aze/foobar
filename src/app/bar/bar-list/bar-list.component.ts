@@ -18,7 +18,7 @@ export class BarListComponent implements OnInit, FbappPage {
   public filterInput!: string;
   constructor(
     private readonly barService: BarService,
-    private readonly barsLoaderService: DataLoaderService<Character[]>,
+    //private readonly barsLoaderService: DataLoaderService<>,
     private readonly userService: UserService,
 
   ) { }
@@ -26,7 +26,7 @@ export class BarListComponent implements OnInit, FbappPage {
   ngOnInit() {
 
   }
-  public onFilter(): void {
+  /*public onFilter(): void {
     this.barsLoaderService.transform(characters => {
       return characters.filter(character => {
         return character.nameStartsWith(this.filterInput);
