@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit,FbappPage {
   private goToHome(): void {
     this.router.navigateByUrl('/');
   }
-  public onSubmit(formDir: NgForm): void {
+  public onSubmit(formDir): void {
     console.log('ok');
 
     const { email, password } = formDir.value;

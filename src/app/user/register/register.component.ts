@@ -58,7 +58,7 @@ export class RegisterComponent implements OnInit,FbappPage {
   }
 
 
-    public onSubmit(formDir: NgForm): void {
+    public onSubmit(formDir): void {
 
     const formRes = formDir.value;
     this.userService.create(formRes);

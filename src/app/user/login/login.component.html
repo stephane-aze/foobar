@@ -16,7 +16,7 @@
                   <div *ngIf="email.invalid && (email.dirty || email.touched)"
                       class="alert alert-danger">
 
-                    <div *ngIf="FormLogin.controls[email].errors.required">
+                    <div *ngIf="email.errors.required">
                       Le champ email est obligatoire.
                     </div>
 
@@ -31,7 +31,7 @@
                       formControlName="password" required >
 
                   <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
-                    <div *ngIf="FormLogin.controls[password].errors.required">
+                    <div *ngIf="password.errors.required">
                       Password n'est pas valable
                     </div>
                   </div>

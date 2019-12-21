@@ -13,12 +13,10 @@
                     <div *ngIf="email.invalid && (email.dirty || email.touched)"
                         class="alert alert-danger">
 
-                      <div *ngIf="FormRegister.controls[email].errors.required">
+                      <div *ngIf="email.errors.required">
                         Le champ email est obligatoire.
                       </div>
-                      <div *ngIf="FormRegister.controls[email].errors.minlength">
-                        Email must be at least 4 characters long.
-                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -32,7 +30,7 @@
                     <div *ngIf="pseudo.invalid && (pseudo.dirty || pseudo.touched)"
                         class="alert alert-danger">
 
-                      <div *ngIf="FormRegister.controls[pseudo].errors.required">
+                      <div *ngIf="pseudo.errors.required">
                         Le champ pseudo est obligatoire.
                       </div>
                     </div>
@@ -46,7 +44,7 @@
                         formControlName="password" required >
 
                     <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
-                      <div *ngIf="FormRegister.controls[password].errors.required">
+                      <div *ngIf="password.errors.required">
                         Password n'est pas valable
                       </div>
                     </div>
@@ -60,7 +58,7 @@
                   <input [matDatepicker]="myDatepicker">
                   <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
                   <mat-datepicker #myDatepicker></mat-datepicker>                  <div *ngIf="age.invalid && age.touched" class="alert alert-danger">
-                    <div *ngIf="FormRegister.controls[age].errors.required">Age est obligatoire.</div>
+                    <div *ngIf="age.errors.required">Age est obligatoire.</div>
                   </div>
                 </div>
               </div>

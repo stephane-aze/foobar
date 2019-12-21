@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'fbapp-loader',
   template: `
-  <span id="loader" [class.centered]="isCentered"></span>
+  <span id="loader"></span>
 `,
   styleUrls: ['./loader.component.scss']
 })
