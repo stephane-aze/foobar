@@ -4,14 +4,13 @@ import { FbappPage } from './shared/FbappPage';
 @Component({
   selector: 'fbapp-root',
   template: `
-   <div class="app-container">
-    <fbapp-nav [pageName]="activatedPageName"></fbapp-nav>
-    <div class="container page">
-    <router-outlet (activate)="onRouteActivated($event)"></router-outlet>
-    </div>
-    <fbapp-footer></fbapp-footer>
+  <fbapp-nav [pageName]="activatedPageName"></fbapp-nav>
+  <div class="app-container main">
+
+    <router-outlet (activate)="onRouteActivated($event)" ></router-outlet>
 
   </div>
+  <fbapp-footer></fbapp-footer>
 
 `
 })

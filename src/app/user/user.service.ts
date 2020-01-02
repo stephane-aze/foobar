@@ -7,12 +7,13 @@ import { AuthService } from '../user/auth/auth.service';
 import { UserResourceService } from './user/user-resource.service';
 import { User } from './User';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private authenticatedUser!: User;
-  uri = 'http://localhost:3000';
+  uri = 'https://projet-annuel-node.herokuapp.com';
   public constructor(private readonly auth: AuthService, private readonly resource: UserResourceService,private readonly httpClient: HttpClient) {}
 
   public get currentUser() {
@@ -22,9 +23,10 @@ export class UserService {
     const body = { email, password };
 
     return this.httpClient.post(`${this.uri}/api/auth/users`, body).pipe(
+      map(User.NEW),
       tap(user => {
         console.log(user);
-        //this.authenticatedUser = user;
+        this.authenticatedUser = user;
       }));
   }
   public create(userCreate: UserModel) {

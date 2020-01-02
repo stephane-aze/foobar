@@ -6,7 +6,8 @@ import { RootModule } from './root/root.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { SharedModule } from './shared/shared.module';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
     ReactiveFormsModule,
     UserModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

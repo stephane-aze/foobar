@@ -4,7 +4,7 @@ export interface BarModel {
   password?: string;
   menu ?: [ string ];
   email?: string;
-  webSite?: number;
+  webSite?: string;
   createDate?: Date;
   deleteDate?: Date;
   stock?: [string];

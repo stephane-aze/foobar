@@ -12,7 +12,7 @@ export class HomeComponent implements FbappPage {
 
   public get user() {
 
-    return JSON.parse(localStorage.getItem('user'))
+    //return JSON.parse(localStorage.getItem('user'))
     return this.userService.currentUser;
   }
 

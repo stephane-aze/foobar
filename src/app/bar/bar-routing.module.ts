@@ -6,7 +6,7 @@ import { BarListComponent } from './bar-list/bar-list.component';
 
 const routes: Routes = [
   { path: 'partners', component: BarAddComponent },
-  { path: 'Listbar', component: BarListComponent }
+  { path: 'ListBar', component: BarListComponent }
 ];
 
 @NgModule({

@@ -14,7 +14,10 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./bar-add.component.scss']
 })
 export class BarAddComponent implements OnInit,FbappPage {
-  public pageTitle = 'S\'inscrire';
+  public pageTitle = 'Partenariat';
+  bars: Array<any>;
+  newbar: any;
+  requesting: boolean;
   FormBar: FormGroup;
   public barName$!: Observable<string>;
 
@@ -26,25 +29,24 @@ export class BarAddComponent implements OnInit,FbappPage {
         Validators.required,
         Validators.email,
       ]),
-      'pseudo': new FormControl('',[
-        Validators.required,
-      ]),
       'password': new FormControl('',[
         Validators.required,
         Validators.minLength(4),
       ]),
-      'age': new FormControl('',[
+      'name': new FormControl('',[
         Validators.required,
       ]),
     }); // <-- add custom validator at the FormGroup level
+    this.requesting = false;
   }
   get email() { return this.FormBar.get('email'); }
+  get name() { return this.FormBar.get('name'); }
 
   get password() { return this.FormBar.get('password'); }
   private goToHome(): void {
     this.router.navigateByUrl('/');
   }
-  public onSubmit(formDir: NgForm): void {
+  public onSubmit(formDir): void {
 
     const formRes = formDir.value;
     this.barService.add(formRes);
@@ -52,3 +54,12 @@ export class BarAddComponent implements OnInit,FbappPage {
   };
 
 }
+/*id?: number;
+name?: string;
+password?: string;
+menu ?: [ string ];
+email?: string;
+webSite?: number;
+createDate?: Date;
+deleteDate?: Date;
+stock?: [string];*/

@@ -10,6 +10,7 @@ export class UserShape {
   public pseudo!: string;
   public favoriteDrink!: number;
   public favoriteBar!: number;
+  public token!: string;
 
   public constructor(data: UserModel) {
     this.id = data.id;
@@ -21,6 +22,7 @@ export class UserShape {
     this.age = data.age;
     this.favoriteBar = data.favoriteBar;
     this.favoriteDrink = data.favoriteDrink;
+    this.token = data.token;
   }
 
   public static NEW(data: UserModel): UserShape {

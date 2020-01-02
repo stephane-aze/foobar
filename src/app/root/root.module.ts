@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { UserModule } from '../user/user.module';
+import { BarModule } from '../bar/bar.module';
 import { RootRoutingModule } from './root-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,7 +15,8 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     SharedModule,
     RootRoutingModule,
-    UserModule
+    UserModule,
+    BarModule
   ],
   exports: [NavComponent, FooterComponent],
 
