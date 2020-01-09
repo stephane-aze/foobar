@@ -1,14 +1,48 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" routerLink="/">{{ pageName }}</a>
+  <nav class="navbar navbar-expand-md navbar-dark menu_nav">
+    <a class="navbar-brand" routerLink="/">FouBar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <ng-container *ngIf="user; else login">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="nav navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+                </li>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="navbarText">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/bar/ListBar" secondary>Liste des bars</a>
+                </li>
+                <li class="nav-item">
+
+                  <a class="snipcart-checkout nav-link" ><span class="fas fa-shopping-cart"></span><span class="snipcart-items-count badge badge-light"></span></a>
+                </li>
+                <li class="nav-item dropdown">
+
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                    <ng-container *ngIf="user.pseudo; else profile">{{user.pseudo}}</ng-container>
+                    <ng-template #profile>Profil</ng-template></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" routerLink="/profiles">Informations Personnelles</a>
+                      <a class="dropdown-item" href="#">Déconnexion</a>
+
+                    </div>
+                </li>
+
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>          </form>
+
+        </div>
+    </ng-container>
+    <ng-template #login>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbarText">
           <ul class="nav navbar-nav mr-auto">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
               </li>
 
@@ -27,7 +61,7 @@
               </li>
               <li class="nav-item">
 
-                <a class="snipcart-checkout nav-link" ><span class="fas fa-shopping-cart"></span><span class="snipcart-items-count"></span></a>
+                <a class="snipcart-checkout nav-link" ><span class="fas fa-shopping-cart"></span><span class="snipcart-items-count badge badge-light"></span></a>
               </li>
 
           </ul>
@@ -36,7 +70,7 @@
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>          </form>
 
       </div>
-
+  </ng-template>
   </nav>
 </header>
 

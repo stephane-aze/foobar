@@ -13,8 +13,8 @@ export class DrinkService {
   private Drink!: DrinkModel;
   constructor(private readonly httpClient: HttpClient) { }
 
-  public getListDrink(){
-    return this.httpClient.get(`${this.uri}/api/drinks`);
+  public getListDrink(): Observable<Drink[]>{
+    return this.httpClient.get(`${this.uri}/api/drinks`).pipe(map(Drink.NEW_BUNCH));
 
   }
   public find(idDrink){

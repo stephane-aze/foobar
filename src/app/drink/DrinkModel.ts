@@ -5,5 +5,6 @@ export interface DrinkModel {
   recipe ?: [ string ];
   bar?: string;
   price?: number;
+  img?: string;
 
 }

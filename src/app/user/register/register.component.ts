@@ -17,7 +17,7 @@ import {createWorker, RecognizeResult} from 'tesseract.js';
 })
 export class RegisterComponent implements OnInit,FbappPage,AfterViewInit {
 
-  public pageTitle = 'Enregistrer';
+  public pageTitle = 'Créer un compte';
   @ViewChild('register', { static: false }) registerInput: ElementRef;
 
   /******************* */
@@ -60,7 +60,6 @@ export class RegisterComponent implements OnInit,FbappPage,AfterViewInit {
         Validators.minLength(4),
       ]),
       'age': new FormControl('',[
-        Validators.required,
       ]),
 
 
@@ -73,21 +72,36 @@ export class RegisterComponent implements OnInit,FbappPage,AfterViewInit {
   private goToHome(): void {
     this.router.navigateByUrl('/');
   }
-  private resetForm(formDir: NgForm): void {
-    formDir.reset();
-    this.registerInput.nativeElement.focus();
+  public goToFormPartenaire(): void {
+    this.router.navigateByUrl('/partners');
   }
 
 
     public onSubmit(formDir): void {
-
-    const formRes = formDir.value;
+      //formDir.age.value=26;
+    const formRes = {
+      ...formDir.value,
+      createDate: new Date().toISOString()
+      .split("T")[0],
+    };
+    const valuet ={
+      email: formRes.email,
+      password: formRes.password,
+      pseudo: formRes.pseudo,
+      createDate: new Date().toISOString()
+      .split("T")[0],
+      age: 26
+    };
     //this.doOCR(formRes.age);
-    //this.userService.create(formRes);
+    console.log(formRes);
+    console.log(valuet);
+
+    //this.userService.create(valuet);
     this.goToHome();
     }
-  onUpload(event): void {
- alert("ok")
+
+  clickFileSelector() {
+    this.fileInput.nativeElement.click();
   }
   async onFileChange(event) {
     this.selectedFile = event.target.files[0];
@@ -115,17 +129,6 @@ export class RegisterComponent implements OnInit,FbappPage,AfterViewInit {
         this.changeDetectionRef.markForCheck();
       }
     });
-     /*
-    const worker = createWorker({
-      workerPath: 'tesseract-201/worker.min.js',
-      corePath: 'tesseract-201/tesseract-core.wasm.js',
-      logger: progress => {
-        this.progressStatus = progress.status;
-        this.progress = progress.progress;
-        this.changeDetectionRef.markForCheck();
-      }
-    });
-*/
     await worker.load();
     await worker.loadLanguage(this.language);
     await worker.initialize(this.language);

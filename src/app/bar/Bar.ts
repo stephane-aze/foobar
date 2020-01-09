@@ -1,18 +1,18 @@
 import { BarShape } from './BarShape';
 export class Bar {
   public constructor(
-    public readonly id: number,
+    public readonly _id: number,
     public readonly  name: string,
-    public readonly  paswword: string,
+    public readonly  password: string,
     public readonly  menu: string[],
     public readonly  webSite: string,
-    public readonly  createDate: Date,
+    public readonly  createDate: string,
     public readonly  stock: string[],
     public readonly  email: string) { }
 
   public static NEW(data: BarShape): Bar {
     return new Bar(
-      data.id,
+      data._id,
       data.name,
       data.password,
       data.menu,

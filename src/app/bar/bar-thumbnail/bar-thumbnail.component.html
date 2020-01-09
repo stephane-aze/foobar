@@ -1,7 +1,8 @@
-<div class="container" [class.favorite]="isFavorite" (click)="openBarDetails()" *ngIf="bar">
+<div class="container" [class.favorite]="isFavorite" (click)="openBarDetails(bar)" *ngIf="bar">
 
   <div class="content">
     <h3>{{bar.name}}</h3>
+
   <span>{{bar.webSite}}</span>
   <button class="snipcart-add-item btn btn-lg btn-success"
   type="button"

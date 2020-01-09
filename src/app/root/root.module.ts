@@ -7,7 +7,9 @@ import { BarModule } from '../bar/bar.module';
 import { RootRoutingModule } from './root-routing.module';
 import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
+import { LoginComponent } from './../user/login/login.component';
+import { RegisterComponent } from './../user/register/register.component';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     SharedModule,
     RootRoutingModule,
     UserModule,
-    BarModule
+    BarModule,
+    MatTabsModule
   ],
   exports: [NavComponent, FooterComponent],
 

@@ -1,21 +1,20 @@
 import { Component } from '@angular/core';
 import { FbappPage } from './shared/FbappPage';
+import { UserService } from './user/user.service';
 
 @Component({
   selector: 'fbapp-root',
-  template: `
-  <fbapp-nav [pageName]="activatedPageName"></fbapp-nav>
-  <div class="app-container main">
-
-    <router-outlet (activate)="onRouteActivated($event)" ></router-outlet>
-
-  </div>
-  <fbapp-footer></fbapp-footer>
-
-`
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   public activatedPageName = 'fbappapp';
+  public constructor(private readonly userService: UserService) { }
+
+  public get user() {
+
+    //return JSON.parse(localStorage.getItem('user'))
+    return this.userService.currentUser;
+  }
 
   public onRouteActivated(activatedPage: FbappPage): void {
     this.activatedPageName = activatedPage.pageTitle;

@@ -18,7 +18,9 @@ export class NavComponent implements OnInit {
   public get user() {
     return this.userService.currentUser;
   }
-
+  private get logout() {
+    return this.userService.logout();
+  }
 
 }
 

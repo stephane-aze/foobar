@@ -1,33 +1,31 @@
-<div class="container row">
-    <div class="col-sm-6">
-        <form [formGroup]="FormRegister" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
+<div class=signup-content>
+  <h1>{{pageTitle}}</h1>
+  <div class="container">
+        <form [formGroup]="FormRegister"  #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
 
               <div class="cross-validation" [class.cross-validation-error]="(FormRegister.touched || FormRegister.dirty)">
                 <div class="form-group row">
-
-                  <label for="email" class="col-sm-2 col-form-label">Email</label>
-                  <div class="col-sm-10">
-                    <input id="email" class="form-control"
-                    formControlName="email"  required      >
+                  <div class="wrap-input100 validate-input ">
+                    <span class="label-input100">Email</span>
+                    <input id="email" class=" input" type="text"
+                    formControlName="email"  required   placeholder="Email..."   >
 
                     <div *ngIf="email.invalid && (email.dirty || email.touched)"
                         class="alert alert-danger">
 
-                      <div *ngIf="email.errors.required">
-                        Le champ email est obligatoire.
-                      </div>
-                      <div *ngIf="email.errors.minlength">
-                        Email must be at least 4 characters long.
-                      </div>
+                      <span *ngIf="email.errors.required">
+                        Le champ email est obligatoire.</span>
                     </div>
                   </div>
+
+
                 </div>
                 <div class="form-group row">
+                  <div class="wrap-input100 validate-input  ">
+                    <span class="label-input100">Pseudo</span>
 
-                  <label for="pseudo" class="col-sm-2 col-form-label">Pseudo</label>
-                  <div class="col-sm-10">
-                    <input id="pseudo" class="form-control"
-                    formControlName="pseudo"  required      >
+                    <input id="pseudo" class=" input"
+                    formControlName="pseudo"  required placeholder="Pseudo..."      >
 
                     <div *ngIf="pseudo.invalid && (pseudo.dirty || pseudo.touched)"
                         class="alert alert-danger">
@@ -37,34 +35,35 @@
                       </div>
                     </div>
                   </div>
+
                 </div>
 
                 <div class="form-group row">
-                  <label for="password" class="col-sm-2 col-form-label">Password</label>
-                  <div class="col-sm-10">
-                    <input id="password" type="password" class="form-control"
-                        formControlName="password" required >
+                  <div class="wrap-input100 validate-input  ">
+                    <span class="label-input100">Mot de passe</span>
+                    <input id="password" type="password" class="input"
+                    formControlName="password" required  placeholder="*****" >
 
-                    <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
-                      <div *ngIf="password.errors.required">
-                        Password n'est pas valable
-                      </div>
-                    </div>
+                <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
+                  <div *ngIf="password.errors.required">
+                    Mot de passe n'est pas valable
+                  </div>
+                </div>
                   </div>
                 </div>
 
               </div>
               <div class="form-group row">
-                  <div class="file-field">
-                    <a class="btn-floating mt-0 float-left">
-                      <i class="fas fa-paperclip" aria-hidden="true"></i>
-                      <input #fileSelector type="file" accept="image/png, image/jpeg" (change)="onFileChange($event)">
-                    </a>
-                    <div class="file-path-wrapper">
-                      <input class="file-path validate" type="text" placeholder="Upload your file">
-                    </div>
+                <a class="btn-floating peach-gradient" (click)="clickFileSelector()">
+                  <i class="fas fa-paperclip" aria-hidden="true"></i>
+                </a>
+                  <div class="wrap-input100 validate-input  ">
+
+                    <input #fileSelector type="file" accept="image/png, image/jpeg" (change)="onFileChange($event)"  style="display: none;" >
+                    <input type="text" class=" input" placeholder="Choisir sa pièce d'identité">
                   </div>
                   <div #canvasContainer class="canvasContainer">
+                    Aperçu:
                     <canvas #canvas></canvas>
                   </div>
                   <div *ngIf="age.invalid && age.touched" class="alert alert-danger">
@@ -75,8 +74,8 @@
               <button type="submit" class="btn btn-primary"
                      [disabled]="FormRegister.invalid">Enregistrer</button>
               <button type="button" class="btn btn-default"
-                     (click)="formDir.resetForm({})">Annuler</button>
+                     (click)="goToFormPartenaire()">Partenaire?</button>
           </form>
 
-            </div>
+  </div>
 </div>

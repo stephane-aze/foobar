@@ -1,22 +1,25 @@
-import { DrinkModel }  from './DrinkModel';
+import { DrinkShape }  from './DrinkShape';
 
 export class Drink {
-  id: number;
-  libelle: string;
-  description: string;
-  recipe : [ string ];
-  bar: string;
-  price: number;
+  public constructor(public readonly id : number,
+    public readonly libelle : string,
+    public readonly description : string,
+    public readonly recipe : string[],
+    public readonly bar : string,
+    public readonly price : number,
+    public readonly img : string) {}
 
-  public constructor(data: DrinkModel) {
-    this.id = data.id;
-    this.libelle = data.libelle;
-    this.description = data.description;
-    this.recipe = data.recipe;
-    this.bar = data.bar;
-    this.price = data.price;
+  public static NEW(data: DrinkShape) : Drink {
+    return new Drink(data.id,
+    data.libelle,
+    data.description,
+    data.recipe,
+    data.bar,
+    data.price,
+    data.img
+    );
   }
-  public static NEW(data: DrinkModel): Drink {
-    return new Drink(data);
+  public static NEW_BUNCH(data: DrinkShape[]): Drink[] {
+    return data.map(Drink.NEW);
   }
 }

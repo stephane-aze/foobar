@@ -22,7 +22,10 @@ export class BarService {
       });
   }
   public getList(): Observable<any[]>{
-    return this.httpClient.get(`${this.uri}/api/bars`).pipe(map(Bar.NEW_BUNCH));
+    return this.httpClient.get(`${this.uri}/api/bars`).pipe(
+      map(Bar.NEW_BUNCH)
+    );
 
   }
+
 }

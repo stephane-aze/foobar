@@ -1,11 +1,11 @@
 export interface BarModel {
-  id?: number;
+  _id?: number;
   name?: string;
   password?: string;
   menu ?: [ string ];
   email?: string;
   webSite?: string;
-  createDate?: Date;
+  createDate?: string;
   deleteDate?: Date;
   stock?: [string];
 

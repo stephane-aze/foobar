@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit,FbappPage {
     })*/
     this.firstName$=this.userService.authenticate(email, password).pipe(
       map((user) => {
-        localStorage.setItem("user",JSON.stringify(user));
+        //localStorage.setItem("user",JSON.stringify(user));
         //localStorage.removeItem("user")
         //localStorage.getItem("user")
         console.log(user);

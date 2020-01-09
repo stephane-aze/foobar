@@ -3,17 +3,17 @@ import { BarModel } from './bar-add/BarModel';
 const NO_TITLE = 'No Title';
 
 export class BarShape {
-  public id!: number;
+  public _id!: number;
   public  name!: string;
   public  password!: string;
   public  menu!: string[];
   public  webSite!: string;
-  public  createDate!: Date;
+  public  createDate!: string;
   public  stock!: string[];
   public  email!: string;
 
   constructor(data: BarModel) {
-    this.id=data.id;
+    this._id=data._id;
     this.name=data.name;
     this.password=data.password;
     this.menu=data.menu;

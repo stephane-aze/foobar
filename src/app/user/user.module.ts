@@ -10,10 +10,12 @@ import { MatFormFieldModule,
   MatIconModule,
   MatDatepickerModule,
   MatNativeDateModule } from '@angular/material';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { ProfilesDialog } from './profiles/profiles-dialog';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent],
+  declarations: [LoginComponent, RegisterComponent, ProfilesComponent,ProfilesDialog],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -21,6 +23,9 @@ import { MatFormFieldModule,
     ReactiveFormsModule,
     MatDatepickerModule,
     MatNativeDateModule
+  ],
+  entryComponents: [
+    ProfilesDialog
   ],
   providers: [
     MatDatepickerModule,

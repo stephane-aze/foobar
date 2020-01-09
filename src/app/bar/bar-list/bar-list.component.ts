@@ -46,7 +46,7 @@ export class BarListComponent implements OnInit, FbappPage {
     this.filterInput = '';
   }
   public onSelectBar(bar: Bar): void {
-    alert(bar.name)/*if (this.userService.currentUser) {
+    /*if (this.userService.currentUser) {
       this.userService.addFavoriteCharacter(character.id).subscribe(() => {
         this.favoriteCharacterId = character.id;
       });

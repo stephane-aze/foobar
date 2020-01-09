@@ -1,69 +1,73 @@
-<div class="container row ">
-  <div class="col-sm-6">
-      <form [formGroup]="FormBar" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
+<div class=signup-content>
+<h1>{{pageTitle}}</h1>
+  <div class="container">
+        <form [formGroup]="FormBar" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
 
-          <div [hidden]="formDir.submitted">
-          </div>
-          <div class="form-group row">
-            <label for="name" class="col-sm-2 col-form-label">Nom</label>
-            <div class="col-sm-10">
-              <input id="name" class="form-control "
-                  formControlName="name" required >
-
-              <div *ngIf="name.invalid && name.touched" class="alert alert-danger name-errors">
-                  Le nom est obligatoire
-              </div>
+            <div [hidden]="formDir.submitted">
             </div>
-          </div>
-            <div class="cross-validation" [class.cross-validation-error]="(FormBar.touched || FormBar.dirty)">
-              <div class="form-group row">
-
-                <label for="email" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                  <input id="email" class="form-control"
-                  formControlName="email"  required      >
-
-                  <div *ngIf="email.invalid && (email.dirty || email.touched)"
-                      class="alert alert-danger">
-                      Le champ email est obligatoire
-                  </div>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="password" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
-                  <input id="password" type='password' class="form-control "
-                      formControlName="password" required >
-
-                  <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
-                      Password est obligatoire
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
             <div class="form-group row">
-              <label for="website" class="col-sm-2 col-form-label">Site Web</label>
-              <div class="col-sm-10">
-                <input id="website"  class="form-control " >
+              <div class="wrap-input100 validate-input ">
+                <span class="label-input100">Nom</span>
+                <input id="name" class=" input" type="text"
+                formControlName="name"  required   placeholder="Nom..."   >
+                <div *ngIf="name.invalid && name.touched" class="alert alert-danger name-errors">
+                    Le nom est obligatoire
+                </div>
               </div>
             </div>
+              <div class="cross-validation" [class.cross-validation-error]="(FormBar.touched || FormBar.dirty)">
+                <div class="form-group row">
+
+                  <div class="wrap-input100 validate-input ">
+                    <span class="label-input100">Email</span>
+                    <input id="email" class=" input" type="text"
+                    formControlName="email"  required   placeholder="Email..."   >
+
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                        class="alert alert-danger">
+                        Le champ email est obligatoire
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <div class="wrap-input100 validate-input ">
+                    <span class="label-input100">Mot de passe</span>
+
+                    <input id="password" type='password' class="input "
+                        formControlName="password" required placeholder="******">
+
+                    <div *ngIf="password.invalid && password.touched" class="alert alert-danger password-errors">
+                        Password est obligatoire
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-group row">
+                <div class="wrap-input100 validate-input ">
+                  <span class="label-input100">Site Web</span>
+
+                  <input id="webSite" type='text' class="input "
+                      required placeholder="www.bar.com">
+
+                </div>
+              </div>
 
 
-            <button type="submit" class="btn btn-primary"
-                   [disabled]="FormBar.invalid">S'associer</button>
-            <button type="button" class="btn btn-default"
-                   (click)="formDir.resetForm({})">Annuler</button>
-        </form>
-        <!--
-        <div class="submitted-message" *ngIf="formDir.submitted">
-          <p>You've submitted your hero, {{ FormBar.value.email }}!</p>
-          <button (click)="formDir.resetForm({})">Add new hero</button>
-        </div>
+              <button type="submit" class="btn btn-primary"
+                    [disabled]="FormBar.invalid">S'associer</button>
+              <button type="button" class="btn btn-default"
+                    (click)="formDir.resetForm({})">Annuler</button>
+          </form>
+          <!--
+          <div class="submitted-message" *ngIf="formDir.submitted">
+            <p>You've submitted your hero, {{ FormBar.value.email }}!</p>
+            <button (click)="formDir.resetForm({})">Add new hero</button>
+          </div>
 
-        -->
+          -->
 
   </div>
 </div>
