@@ -1,7 +1,18 @@
-<div class="container"  (click)="choseDrink()" *ngIf="drink">
-
+<div class="container"   *ngIf="drink">
+    <div *ngIf="drink.img!=null"><img [src]="drink.img" [alt]="drink.libelle"></div>
   <div class="content">
-    <h3>{{drink.name}}</h3>
-  <span>{{drink.webSite}}</span>
+    <h3>{{drink.libelle}}</h3>
+  <span>{{drink.description}}</span>
+  <div>{{drink.price}} €</div>
+  <button class="snipcart-add-item btn btn-success"
+  type="button"
+      [attr.data-item-id]="drink._id"
+      [attr.data-item-price]="drink.price"
+      [attr.data-item-description]="drink.description"
+      [attr.data-item-image]="drink.img"
+      [attr.data-item-name]="drink.libelle">
+    Acheter
+  </button>
+
   </div>
 </div>

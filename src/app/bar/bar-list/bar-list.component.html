@@ -4,7 +4,7 @@
   <button type="button" class="btn btn-success"(click)="reset()">clear</button>
 </div>
 <section *ngIf="bars$ | async as bars; else loading" data-testid="display-bars">
-  <fbapp-bar-thumbnail *ngFor="let bar of bars" [bar]="bar" (chose)="onSelectBar($event)">
+  <fbapp-bar-thumbnail *ngFor="let bar of bars" [bar]="bar" (click)="onSelectBar(bar._id)">
   </fbapp-bar-thumbnail>
 </section>
 <ng-template #loading>

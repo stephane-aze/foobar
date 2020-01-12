@@ -3,7 +3,7 @@ import { DrinkModel } from './DrinkModel';
 const NO_TITLE = 'No Title';
 
 export class DrinkShape {
-  public id!: number;
+  public _id!: number;
   public  libelle!: string;
   public  description!: string;
   public  recipe!: string[];
@@ -12,7 +12,7 @@ export class DrinkShape {
   public  img!: string;
 
   constructor(data: DrinkModel) {
-    this.id=data.id;
+    this._id=data._id;
     this.libelle=data.libelle;
     this.description=data.description;
     this.recipe=data.recipe;

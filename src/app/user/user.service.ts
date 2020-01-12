@@ -12,18 +12,21 @@ import { UserShape } from './UserShape';
 })
 export class UserService {
   private authenticatedUser!: User;
-  uri = 'http://localhost:3000';
+  //uri = 'http://localhost:3000';
+  uri = 'https://projet-annuel-node.herokuapp.com';
+
   public constructor(private readonly httpClient: HttpClient) {}
 
   public get currentUser() {
-    return this.authenticatedUser;
+    return this.authenticatedUser=JSON.parse(localStorage.getItem('user'));
   }
   public authenticate(email: string, password: string) {
     const body = { email, password };
-
+    console.log(body);
     return this.httpClient.post(`${this.uri}/api/auth/users`, body).pipe(
       map(User.NEW),
       tap(user => {
+        localStorage.setItem('user', JSON.stringify(user));
         this.authenticatedUser = user;
       }));
   }
@@ -38,6 +41,8 @@ export class UserService {
   }
 
   public logout(): void {
+            // remove user from local storage and set current user to null
+    localStorage.removeItem('user');
     this.authenticatedUser = null;
   }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { DrinkRoutingModule } from './drink-routing.module';
@@ -11,6 +11,7 @@ import { DrinkThumbnailComponent } from './drink-thumbnail/drink-thumbnail.compo
   imports: [
     CommonModule,
     DrinkRoutingModule
-  ]
+  ],
+  exports: [ DrinkThumbnailComponent ]
 })
 export class DrinkModule { }

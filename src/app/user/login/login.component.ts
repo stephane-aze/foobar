@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit,FbappPage {
       ]),
       'password': new FormControl('',[
         Validators.required,
-        Validators.minLength(4),
       ]),
     }); // <-- add custom validator at the FormGroup level
   }
@@ -41,12 +40,11 @@ export class LoginComponent implements OnInit,FbappPage {
     this.router.navigateByUrl('/');
   }
   public onSubmit(formDir): void {
-    console.log('ok');
 
     const { email, password } = formDir.value;
     /*this.authService.authenticate(email, password).subscribe(user=>{
-      console.log(user);
-    })*/
+
+    })*/console.log(formDir.value);
     this.firstName$=this.userService.authenticate(email, password).pipe(
       map((user) => {
         //localStorage.setItem("user",JSON.stringify(user));

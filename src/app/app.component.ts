@@ -5,6 +5,7 @@ import { UserService } from './user/user.service';
 @Component({
   selector: 'fbapp-root',
   templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   public activatedPageName = 'fbappapp';

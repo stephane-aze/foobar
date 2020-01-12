@@ -28,15 +28,15 @@ export class DrinkListComponent implements OnInit, FbappPage {
 
 
     this.initDrinksLoader();
-    this.getListsDrink();
+   // this.getListsDrink();
 
   }
-  private getListsDrink(): Observable<Drink[]>{
+  /*private getListsDrink(): Observable<Drink[]>{
     return this.drinkService.getListDrink();
-  }
+  }*/
   private initDrinksLoader(): void {
-    const drinks$ = this.getListsDrink();
-    this.barsLoaderService.init(drinks$);
+    //const drinks$ = this.getListsDrink();
+    //this.barsLoaderService.init(drinks$);
     this.drinks$ = this.barsLoaderService.stream$;
   }
   public onSelectDrink(drink: Drink): void {

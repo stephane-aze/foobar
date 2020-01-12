@@ -1,17 +1,14 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Drink } from '../Drink.entity';
 
 @Component({
   selector: 'fbapp-drink-thumbnail',
   templateUrl: './drink-thumbnail.component.html',
-  styleUrls: ['./drink-thumbnail.component.scss']
+  styleUrls: ['./drink-thumbnail.component.scss'],
+  
 })
 export class DrinkThumbnailComponent {
-  @Input() public drink!: any;
-  @Output() public chose = new EventEmitter<any>();
-
-  public choseDrink(): void {
-    this.chose.emit(this.drink);
-  }
+  @Input() public drink: Drink;
 
 
 }

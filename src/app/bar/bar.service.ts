@@ -5,16 +5,16 @@ import { Observable } from 'rxjs';
 
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { BarShape } from './BarShape';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BarService {
   uri = 'https://projet-annuel-node.herokuapp.com';
-
+  //uri = 'http://localhost:3000';
   constructor(private readonly httpClient: HttpClient) { }
   public add(BarCreate: BarModel){
-    console.log(BarCreate);
     return this.httpClient.post(`${this.uri}/api/bars`, BarCreate)
       .subscribe(bar => {
         console.log(bar);
@@ -27,5 +27,10 @@ export class BarService {
     );
 
   }
+  public findOne(BarId: string): Observable<Bar>{
+    return this.httpClient.get<Bar>(`${this.uri}/api/bars/${BarId}`);
+
+  }
+
 
 }

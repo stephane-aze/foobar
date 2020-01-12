@@ -1,7 +1,7 @@
 import { DrinkShape }  from './DrinkShape';
 
 export class Drink {
-  public constructor(public readonly id : number,
+  public constructor(public readonly _id : number,
     public readonly libelle : string,
     public readonly description : string,
     public readonly recipe : string[],
@@ -10,7 +10,7 @@ export class Drink {
     public readonly img : string) {}
 
   public static NEW(data: DrinkShape) : Drink {
-    return new Drink(data.id,
+    return new Drink(data._id,
     data.libelle,
     data.description,
     data.recipe,

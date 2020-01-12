@@ -1,0 +1,8 @@
+
+<section  *ngIf="drinks$ | async as drinks; else loading" data-testid="display-drinks">
+  <fbapp-drink-thumbnail *ngFor="let drink of drinks" [drink]="drink ">
+  </fbapp-drink-thumbnail>
+</section>
+<ng-template #loading>
+  <fbapp-loader center></fbapp-loader>
+</ng-template>

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FbappPage } from 'src/app/shared/FbappPage';
 import { BarService } from '../bar.service';
 import { Bar} from '../Bar';
+import { Router } from '@angular/router';
 
 import { DataLoaderService } from 'src/app/shared/data-loader.service';
 import { UserService } from 'src/app/user/user.service';
@@ -23,6 +24,7 @@ export class BarListComponent implements OnInit, FbappPage {
     private readonly barService: BarService,
     private readonly barsLoaderService: DataLoaderService<Bar[]>,
     private readonly userService: UserService,
+    private router: Router
 
   ) { }
 
@@ -45,7 +47,9 @@ export class BarListComponent implements OnInit, FbappPage {
     this.barsLoaderService.reset();
     this.filterInput = '';
   }
-  public onSelectBar(bar: Bar): void {
+  public onSelectBar(barId: string): void {
+    this.router.navigateByUrl("/bars/"+barId);
+
     /*if (this.userService.currentUser) {
       this.userService.addFavoriteCharacter(character.id).subscribe(() => {
         this.favoriteCharacterId = character.id;

@@ -1,5 +1,5 @@
 export interface DrinkModel {
-  id?: number;
+  _id?: number;
   libelle?: string;
   description?: string;
   recipe ?: [ string ];

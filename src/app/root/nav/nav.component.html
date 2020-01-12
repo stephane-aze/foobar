@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="nav-item">
-                  <a class="nav-link" routerLink="/bar/ListBar" secondary>Liste des bars</a>
+                  <a class="nav-link" routerLink="/bars" secondary>Liste des bars</a>
                 </li>
                 <li class="nav-item">
 
@@ -26,7 +26,7 @@
                     <ng-template #profile>Profil</ng-template></a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <a class="dropdown-item" routerLink="/profiles">Informations Personnelles</a>
-                      <a class="dropdown-item" href="#">Déconnexion</a>
+                      <a class="dropdown-item" (click)="logout()">Déconnexion</a>
 
                     </div>
                 </li>
@@ -54,10 +54,10 @@
                 <a class="nav-link" routerLink="/user/register" secondary>S'inscrire</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/bar/partners" secondary>Partenaire</a>
+                <a class="nav-link" routerLink="/bars/partners" secondary>Partenaire</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" routerLink="/bar/ListBar" secondary>Liste des bars</a>
+                <a class="nav-link" routerLink="/bars" secondary>Liste des bars</a>
               </li>
               <li class="nav-item">
 
@@ -65,7 +65,7 @@
               </li>
 
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline my-2 my-lg-0" *ngIf="user">
             <input class="form-control mr-sm-2" type="search" placeholder="Recherche" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>          </form>
 

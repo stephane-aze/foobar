@@ -11,10 +11,10 @@ export class BarThumbnailComponent {
   @Input() public isFavorite!: boolean;
   @Output() public chose = new EventEmitter<any>();
 
-  public openBarDetails(bar:Bar): void {
+  /*public openBarDetails(bar:Bar): void {
     console.log(bar);
     //this.chose.emit(this.bar);
-  }
+  }*/
   public onSelectCharacter(bar: Bar): void {
 
   }
