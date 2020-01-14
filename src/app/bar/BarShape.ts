@@ -11,6 +11,8 @@ export class BarShape {
   public  createDate!: string;
   public  stock!: string[];
   public  email!: string;
+  public isValidate!: boolean;
+  public address!: string;
 
   constructor(data: BarModel) {
     this._id=data._id;
@@ -21,6 +23,9 @@ export class BarShape {
     this.createDate=data.createDate;
     this.stock=data.stock;
     this.email=data.email;
+    this.isValidate=data.isValidate;
+    this.address=data.address;
+
   }
 
   public static NEW(data: BarModel): BarShape {

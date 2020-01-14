@@ -8,7 +8,9 @@ export class Bar {
     public readonly  webSite: string,
     public readonly  createDate: string,
     public readonly  stock: string[],
-    public readonly  email: string) { }
+    public readonly  email: string,
+    public readonly isValidate: boolean,
+    public readonly address: string) { }
 
   public static NEW(data: BarShape): Bar {
     return new Bar(
@@ -19,7 +21,9 @@ export class Bar {
       data.webSite,
       data.createDate,
       data.stock,
-      data.email
+      data.email,
+      data.isValidate,
+      data.address,
       );
   }
 
@@ -33,6 +37,6 @@ export class Bar {
     console.log(normalizedName);
 
     const normalizedTest = (proposal || '').toLowerCase();
-    return normalizedName.startsWith(normalizedTest);
+    return normalizedName.includes(normalizedTest);
   }
 }

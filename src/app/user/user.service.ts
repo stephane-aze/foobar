@@ -36,6 +36,8 @@ export class UserService {
   public update(userCreate: UserModel,_id: number) {
     return this.httpClient.patch<UserShape>(`${this.uri}/api/users/${_id}`, userCreate)
     .subscribe((user) => {
+      
+      localStorage.setItem('user', JSON.stringify(user));
       return this.authenticatedUser = user;
     });
   }

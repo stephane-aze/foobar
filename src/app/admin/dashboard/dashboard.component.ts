@@ -1,29 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { switchMap, map, tap } from 'rxjs/operators';
+import {AdminService } from '../admin.service';
 import { FbappPage } from 'src/app/shared/FbappPage';
-import { BarService } from '../bar.service';
-import { Bar} from '../Bar';
+import { BarService } from '../../bar/bar.service';
+import { Bar} from '../../bar/Bar';
 import { Router } from '@angular/router';
 
 import { DataLoaderService } from 'src/app/shared/data-loader.service';
-import { UserService } from 'src/app/user/user.service';
+
 
 @Component({
-  templateUrl: './bar-list.component.html',
-  styleUrls: ['./bar-list.component.scss'],
+  selector: 'fbapp-dashboard',
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss'],
   providers: [DataLoaderService],
 })
-export class BarListComponent implements OnInit, FbappPage {
-  public readonly pageTitle = 'Liste des bars';
-  public readonly filterPlaceholder = 'Filtrer par nom';
+export class DashboardComponent implements OnInit {
+
+  public readonly pageTitle = 'Liste des bars en attente de validation';
   public bars$: Observable<Bar[]>;
 
   public filterInput!: string;
   constructor(
     private readonly barService: BarService,
     private readonly barsLoaderService: DataLoaderService<Bar[]>,
-    private readonly userService: UserService,
+    private readonly adminService: AdminService,
     private router: Router
 
   ) { }
@@ -35,28 +37,10 @@ export class BarListComponent implements OnInit, FbappPage {
     this.listBars();
 
   }
-  public onFilter(): void {
-    this.barsLoaderService.transform(bars => {
-
-      return bars.filter(bar => {
-        return bar.nameStartsWith(this.filterInput);
-      });
-    });
-  }
   public reset(): void {
     this.barsLoaderService.reset();
     this.filterInput = '';
   }
-  public onSelectBar(barId: string): void {
-    this.router.navigateByUrl("/bars/"+barId);
-
-    /*if (this.userService.currentUser) {
-      this.userService.addFavoriteCharacter(character.id).subscribe(() => {
-        this.favoriteCharacterId = character.id;
-      });
-    }*/
-  }
-
  /* private initFavoriteCharaterId(): void {
     const { currentUser } = this.userService;
     if (currentUser) {
@@ -72,6 +56,14 @@ export class BarListComponent implements OnInit, FbappPage {
 
   private listBars(): Observable<Bar[]>{
 
-    return this.barService.getListBarValide();
+    return this.barService.getListBarInvalide();
+  }
+  public isValid(bar:Bar){
+    //alert('ok');
+    this.bars$=this.barService.ValidateBar(bar);
+
   }
 }
+
+
+

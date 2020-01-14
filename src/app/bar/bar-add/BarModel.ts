@@ -8,5 +8,7 @@ export interface BarModel {
   createDate?: string;
   deleteDate?: Date;
   stock?: [string];
+  isValidate?: boolean;
+  address?: string;
 
 }

@@ -4,7 +4,7 @@ import { map,tap, switchMap, mergeMap } from 'rxjs/operators';
 import { pipe, Observable } from 'rxjs';
 import { DrinkModel } from './DrinkModel';
 import { DrinkShape } from './DrinkShape';
-
+import Param from './Param.json';
 import { Drink } from './Drink.entity';
 
 @Injectable({
@@ -25,12 +25,15 @@ export class DrinkService {
         data.map((drink:Drink)=>{this.httpClient.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink.libelle}`)
           .subscribe((search:any)=>{
             if(!search.drinks){
-              return drink;
+              var files=drink.libelle.replace(/[ ,-]/g, '_');
+              files=files.toUpperCase();
+              return Object.assign(drink,{img :Param.url+Param[files]+'.png'});
+
             }
             var searchDrink=search.drinks;
             if(Array.isArray(search.drinks)){
               searchDrink=search.drinks[0];
-          }
+            }
           return Object.assign(drink,{img : searchDrink.strDrinkThumb});
         })
       });
