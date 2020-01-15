@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit,FbappPage {
 
   get password() { return this.FormLogin.get('password'); }
   private goToHome(): void {
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/admin/dashboard');
   }
   public onSubmit(formDir): void {
 

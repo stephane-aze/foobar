@@ -10,7 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { LoginComponent } from './../user/login/login.component';
 import { RegisterComponent } from './../user/register/register.component';
-
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [HomeComponent, NavComponent, FooterComponent ],
@@ -19,7 +19,9 @@ import { RegisterComponent } from './../user/register/register.component';
     RootRoutingModule,
     UserModule,
     BarModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule
+
   ],
   exports: [NavComponent, FooterComponent],
 

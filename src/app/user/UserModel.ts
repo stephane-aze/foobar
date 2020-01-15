@@ -5,7 +5,7 @@ export interface UserModel {
   previousOrders?: [string];
   createDate: string;
   deleteDate?: Date;
-  age?: number;
+  age?: string;
   email?: string;
   favoriteDrink?: number;
   favoriteBar?: number;

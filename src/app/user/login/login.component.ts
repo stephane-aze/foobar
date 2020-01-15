@@ -42,9 +42,6 @@ export class LoginComponent implements OnInit,FbappPage {
   public onSubmit(formDir): void {
 
     const { email, password } = formDir.value;
-    /*this.authService.authenticate(email, password).subscribe(user=>{
-
-    })*/console.log(formDir.value);
     this.firstName$=this.userService.authenticate(email, password).pipe(
       map((user) => {
         //localStorage.setItem("user",JSON.stringify(user));
@@ -59,25 +56,6 @@ export class LoginComponent implements OnInit,FbappPage {
         return of('Login failed');
       }),
     );
-
-    /*this.http.post('http://127.0.0.1:3000/api/auth', JSON.stringify(body), {
-      headers: headers
-    }).subscribe(data => {
-      console.log(data);
-    });
-
-     /*this.email$ = this.userService.authenticate(email, password).subscribe(
-      (users) => {
-        console.log('ok2');
-        this.goToHome();
-        return null;
-      }),
-      catchError(() => {
-        console.log('die');
-        this.resetForm(formDir);
-        return of('Login failed');
-      }),
-    );*/
   }
   private resetForm(formDir: NgForm): void {
     formDir.reset();

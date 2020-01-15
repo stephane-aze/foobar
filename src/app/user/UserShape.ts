@@ -7,7 +7,7 @@ export class UserShape {
   public previousOrders!: string[];
   public createDate!: string;
   public deleteDate!: Date;
-  public age!: number;
+  public age!: string;
   public pseudo!: string;
   public favoriteDrink!: number;
   public favoriteBar!: number;

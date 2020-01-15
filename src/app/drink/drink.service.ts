@@ -40,8 +40,15 @@ export class DrinkService {
       console.log(data);
 
       return data;
-      })
-     /* tap(Drink.NEW_BUNCH)*/
+      }),
+     tap((drinks: Drink[])=>{
+       if(true){
+         drinks.filter((drink: Drink) =>{
+           drink.isAlcohol==false;
+           return drink;
+        })
+       }
+     })/* */
       );
 
   }

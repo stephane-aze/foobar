@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   @Input() public pageName!: string;
+  public filterInput!: string;
 
   constructor(private readonly userService: UserService,private readonly router: Router) { }
 

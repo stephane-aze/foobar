@@ -6,5 +6,6 @@ export interface DrinkModel {
   bar?: string;
   price?: number;
   img?: string;
+  isAlcohol?: boolean;
 
 }

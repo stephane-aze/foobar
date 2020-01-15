@@ -6,7 +6,7 @@ export class User {
     public readonly email: string,
     public readonly password: string,
     public readonly previousOrders: string[],
-    public readonly age: number,
+    public readonly age: string,
     public readonly pseudo: string,
     public readonly createDate: string,
     public readonly deleteDate: Date,

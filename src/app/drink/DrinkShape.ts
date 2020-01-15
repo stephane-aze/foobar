@@ -10,6 +10,7 @@ export class DrinkShape {
   public  bar!: string;
   public  price!: number;
   public  img!: string;
+  public isAlcohol!: boolean;
 
   constructor(data: DrinkModel) {
     this._id=data._id;
@@ -19,6 +20,8 @@ export class DrinkShape {
     this.bar=data.bar;
     this.price=data.price;
     this.img=data.img;
+    this.isAlcohol= data.isAlcohol;
+
   }
 
   public static NEW(data: DrinkModel): DrinkShape {

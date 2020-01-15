@@ -7,7 +7,8 @@ export class Drink {
     public readonly recipe : string[],
     public readonly bar : string,
     public readonly price : number,
-    public readonly img : string) {}
+    public readonly img : string,
+    public readonly isAlcohol : boolean) {}
 
   public static NEW(data: DrinkShape) : Drink {
     return new Drink(data._id,
@@ -16,7 +17,8 @@ export class Drink {
     data.recipe,
     data.bar,
     data.price,
-    data.img
+    data.img,
+    data.isAlcohol,
     );
   }
   public static NEW_BUNCH(data: DrinkShape[]): Drink[] {
