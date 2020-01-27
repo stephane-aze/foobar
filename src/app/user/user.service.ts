@@ -31,12 +31,13 @@ export class UserService {
       }));
   }
   public create(userCreate: UserModel) {
-    return this.httpClient.post(`${this.uri}/api/users`, userCreate);
+    console.log(userCreate)
+    return this.httpClient.post(`${this.uri}/api/users`, userCreate).subscribe((user) => {return null;});;
   }
   public update(userCreate: UserModel,_id: number) {
     return this.httpClient.patch<UserShape>(`${this.uri}/api/users/${_id}`, userCreate)
     .subscribe((user) => {
-      
+
       localStorage.setItem('user', JSON.stringify(user));
       return this.authenticatedUser = user;
     });

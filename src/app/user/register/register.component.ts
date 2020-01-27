@@ -59,9 +59,13 @@ export class RegisterComponent implements OnInit,FbappPage {
 
 
     public onSubmit(formDir): void {
-
       const formRes = {
-        ...formDir.value,
+        pseudo:formDir.value.pseudo,
+        email: formDir.value.email,
+        password: formDir.value.password,
+        previousOrders: [],
+        age: formDir.value.age.toISOString()
+        .split("T")[0],
         createDate: new Date().toISOString()
         .split("T")[0],
       };
@@ -74,7 +78,7 @@ export class RegisterComponent implements OnInit,FbappPage {
         age: 26
       };*/
       //this.doOCR(formRes.age);
-
+      console.log(formRes)
       this.userService.create(formRes);
       this.goToHome();
     }
